@@ -71,3 +71,18 @@ export default defineConfig([
   },
 ])
 ```
+## IA para interfaces
+
+
+V0
+
+Lovable
+
+Bolt.new
+
+
+## React Router
+
+[React router](https://reactrouter.com/)
+
+Trabajaremos en modo **Data**: [Instalación](https://reactrouter.com/start/data/installation)
