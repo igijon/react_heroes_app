@@ -15,31 +15,32 @@ import {
   ChevronLeft,
   ChevronRight,
   MoreHorizontal,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CustomJumbotron } from "@/components/custom/CustomJumbotron";
 
 export const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-      <div className="max-w-7xl mx-auto p-6">
+    <>
+      <>
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            Superhero Universe
-          </h1>
-          <p className="text-gray-600 text-lg">Discover, explore, and manage your favorite superheroes and villains</p>
-        </div>
+        <CustomJumbotron
+          title="Universo de SuperHéroes"
+          description="Descubre, explora y administra super héroes"
+        />
 
         {/* Stats Dashboard */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Characters</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Total Characters
+              </CardTitle>
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -84,7 +85,9 @@ export const HomePage = () => {
             </CardHeader>
             <CardContent>
               <div className="text-lg font-bold">Batman</div>
-              <p className="text-xs text-muted-foreground">Intelligence: 10/10</p>
+              <p className="text-xs text-muted-foreground">
+                Intelligence: 10/10
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -94,7 +97,10 @@ export const HomePage = () => {
           {/* Search */}
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-            <Input placeholder="Search heroes, villains, powers, teams..." className="pl-12 h-12 text-lg" />
+            <Input
+              placeholder="Search heroes, villains, powers, teams..."
+              className="pl-12 h-12 text-lg"
+            />
           </div>
 
           {/* Action buttons */}
@@ -153,10 +159,15 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="mt-4">
-            <label className="text-sm font-medium">Minimum Strength: 0/10</label>
+            <label className="text-sm font-medium">
+              Minimum Strength: 0/10
+            </label>
             <div className="relative flex w-full touch-none select-none items-center mt-2">
               <div className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
-                <div className="absolute h-full bg-primary" style={{ width: "0%" }} />
+                <div
+                  className="absolute h-full bg-primary"
+                  style={{ width: "0%" }}
+                />
               </div>
               <div className="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors" />
             </div>
@@ -201,16 +212,25 @@ export const HomePage = () => {
               {/* Status indicator */}
               <div className="absolute top-3 left-3 flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <Badge variant="secondary" className="text-xs bg-white/90 text-gray-700">
+                <Badge
+                  variant="secondary"
+                  className="text-xs bg-white/90 text-gray-700"
+                >
                   Active
                 </Badge>
               </div>
 
               {/* Universe badge */}
-              <Badge className="absolute top-3 right-3 text-xs bg-blue-600 text-white">DC</Badge>
+              <Badge className="absolute top-3 right-3 text-xs bg-blue-600 text-white">
+                DC
+              </Badge>
 
               {/* Favorite button */}
-              <Button size="sm" variant="ghost" className="absolute bottom-3 right-3 bg-white/90 hover:bg-white">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+              >
                 <Heart className="h-4 w-4 fill-red-500 text-red-500" />
               </Button>
 
@@ -230,7 +250,9 @@ export const HomePage = () => {
                   <h3 className="font-bold text-lg leading-tight">Superman</h3>
                   <p className="text-sm text-gray-600">Clark Kent</p>
                 </div>
-                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">Hero</Badge>
+                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">
+                  Hero
+                </Badge>
               </div>
               <Badge variant="outline" className="w-fit text-xs">
                 Justice League
@@ -239,7 +261,8 @@ export const HomePage = () => {
 
             <CardContent className="space-y-4">
               <p className="text-sm text-gray-600 line-clamp-2">
-                The Last Son of Krypton, protector of Earth and symbol of hope for all humanity.
+                The Last Son of Krypton, protector of Earth and symbol of hope
+                for all humanity.
               </p>
 
               {/* Stats */}
@@ -290,7 +313,9 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 pt-2 border-t">First appeared: 1938</div>
+              <div className="text-xs text-gray-500 pt-2 border-t">
+                First appeared: 1938
+              </div>
             </CardContent>
           </Card>
 
@@ -305,14 +330,23 @@ export const HomePage = () => {
 
               <div className="absolute top-3 left-3 flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <Badge variant="secondary" className="text-xs bg-white/90 text-gray-700">
+                <Badge
+                  variant="secondary"
+                  className="text-xs bg-white/90 text-gray-700"
+                >
                   Active
                 </Badge>
               </div>
 
-              <Badge className="absolute top-3 right-3 text-xs bg-blue-600 text-white">DC</Badge>
+              <Badge className="absolute top-3 right-3 text-xs bg-blue-600 text-white">
+                DC
+              </Badge>
 
-              <Button size="sm" variant="ghost" className="absolute bottom-3 right-3 bg-white/90 hover:bg-white">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+              >
                 <Heart className="h-4 w-4 text-gray-600" />
               </Button>
 
@@ -331,7 +365,9 @@ export const HomePage = () => {
                   <h3 className="font-bold text-lg leading-tight">Batman</h3>
                   <p className="text-sm text-gray-600">Bruce Wayne</p>
                 </div>
-                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">Hero</Badge>
+                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">
+                  Hero
+                </Badge>
               </div>
               <Badge variant="outline" className="w-fit text-xs">
                 Justice League
@@ -340,7 +376,8 @@ export const HomePage = () => {
 
             <CardContent className="space-y-4">
               <p className="text-sm text-gray-600 line-clamp-2">
-                The Dark Knight of Gotham City, using fear as a weapon against crime and corruption.
+                The Dark Knight of Gotham City, using fear as a weapon against
+                crime and corruption.
               </p>
 
               <div className="grid grid-cols-2 gap-3">
@@ -389,7 +426,9 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 pt-2 border-t">First appeared: 1939</div>
+              <div className="text-xs text-gray-500 pt-2 border-t">
+                First appeared: 1939
+              </div>
             </CardContent>
           </Card>
 
@@ -404,14 +443,23 @@ export const HomePage = () => {
 
               <div className="absolute top-3 left-3 flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <Badge variant="secondary" className="text-xs bg-white/90 text-gray-700">
+                <Badge
+                  variant="secondary"
+                  className="text-xs bg-white/90 text-gray-700"
+                >
                   Active
                 </Badge>
               </div>
 
-              <Badge className="absolute top-3 right-3 text-xs bg-blue-600 text-white">DC</Badge>
+              <Badge className="absolute top-3 right-3 text-xs bg-blue-600 text-white">
+                DC
+              </Badge>
 
-              <Button size="sm" variant="ghost" className="absolute bottom-3 right-3 bg-white/90 hover:bg-white">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+              >
                 <Heart className="h-4 w-4 fill-red-500 text-red-500" />
               </Button>
 
@@ -427,10 +475,14 @@ export const HomePage = () => {
             <CardHeader className="pb-3">
               <div className="flex justify-between items-start">
                 <div className="space-y-1">
-                  <h3 className="font-bold text-lg leading-tight">Wonder Woman</h3>
+                  <h3 className="font-bold text-lg leading-tight">
+                    Wonder Woman
+                  </h3>
                   <p className="text-sm text-gray-600">Diana Prince</p>
                 </div>
-                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">Hero</Badge>
+                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">
+                  Hero
+                </Badge>
               </div>
               <Badge variant="outline" className="w-fit text-xs">
                 Justice League
@@ -439,7 +491,8 @@ export const HomePage = () => {
 
             <CardContent className="space-y-4">
               <p className="text-sm text-gray-600 line-clamp-2">
-                Amazonian princess and warrior, champion of truth, justice, and equality.
+                Amazonian princess and warrior, champion of truth, justice, and
+                equality.
               </p>
 
               <div className="grid grid-cols-2 gap-3">
@@ -488,7 +541,9 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 pt-2 border-t">First appeared: 1941</div>
+              <div className="text-xs text-gray-500 pt-2 border-t">
+                First appeared: 1941
+              </div>
             </CardContent>
           </Card>
 
@@ -503,14 +558,23 @@ export const HomePage = () => {
 
               <div className="absolute top-3 left-3 flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <Badge variant="secondary" className="text-xs bg-white/90 text-gray-700">
+                <Badge
+                  variant="secondary"
+                  className="text-xs bg-white/90 text-gray-700"
+                >
                   Active
                 </Badge>
               </div>
 
-              <Badge className="absolute top-3 right-3 text-xs bg-red-600 text-white">Marvel</Badge>
+              <Badge className="absolute top-3 right-3 text-xs bg-red-600 text-white">
+                Marvel
+              </Badge>
 
-              <Button size="sm" variant="ghost" className="absolute bottom-3 right-3 bg-white/90 hover:bg-white">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+              >
                 <Heart className="h-4 w-4 text-gray-600" />
               </Button>
 
@@ -526,10 +590,14 @@ export const HomePage = () => {
             <CardHeader className="pb-3">
               <div className="flex justify-between items-start">
                 <div className="space-y-1">
-                  <h3 className="font-bold text-lg leading-tight">Spider-Man</h3>
+                  <h3 className="font-bold text-lg leading-tight">
+                    Spider-Man
+                  </h3>
                   <p className="text-sm text-gray-600">Peter Parker</p>
                 </div>
-                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">Hero</Badge>
+                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">
+                  Hero
+                </Badge>
               </div>
               <Badge variant="outline" className="w-fit text-xs">
                 Avengers
@@ -538,7 +606,8 @@ export const HomePage = () => {
 
             <CardContent className="space-y-4">
               <p className="text-sm text-gray-600 line-clamp-2">
-                Your friendly neighborhood Spider-Man, with great power comes great responsibility.
+                Your friendly neighborhood Spider-Man, with great power comes
+                great responsibility.
               </p>
 
               <div className="grid grid-cols-2 gap-3">
@@ -587,7 +656,9 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 pt-2 border-t">First appeared: 1962</div>
+              <div className="text-xs text-gray-500 pt-2 border-t">
+                First appeared: 1962
+              </div>
             </CardContent>
           </Card>
 
@@ -602,14 +673,23 @@ export const HomePage = () => {
 
               <div className="absolute top-3 left-3 flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <Badge variant="secondary" className="text-xs bg-white/90 text-gray-700">
+                <Badge
+                  variant="secondary"
+                  className="text-xs bg-white/90 text-gray-700"
+                >
                   Active
                 </Badge>
               </div>
 
-              <Badge className="absolute top-3 right-3 text-xs bg-red-600 text-white">Marvel</Badge>
+              <Badge className="absolute top-3 right-3 text-xs bg-red-600 text-white">
+                Marvel
+              </Badge>
 
-              <Button size="sm" variant="ghost" className="absolute bottom-3 right-3 bg-white/90 hover:bg-white">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+              >
                 <Heart className="h-4 w-4 fill-red-500 text-red-500" />
               </Button>
 
@@ -628,7 +708,9 @@ export const HomePage = () => {
                   <h3 className="font-bold text-lg leading-tight">Iron Man</h3>
                   <p className="text-sm text-gray-600">Tony Stark</p>
                 </div>
-                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">Hero</Badge>
+                <Badge className="text-xs bg-green-100 text-green-800 border-green-200">
+                  Hero
+                </Badge>
               </div>
               <Badge variant="outline" className="w-fit text-xs">
                 Avengers
@@ -637,7 +719,8 @@ export const HomePage = () => {
 
             <CardContent className="space-y-4">
               <p className="text-sm text-gray-600 line-clamp-2">
-                Billionaire genius inventor who uses his technology to protect the world.
+                Billionaire genius inventor who uses his technology to protect
+                the world.
               </p>
 
               <div className="grid grid-cols-2 gap-3">
@@ -686,7 +769,9 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 pt-2 border-t">First appeared: 1963</div>
+              <div className="text-xs text-gray-500 pt-2 border-t">
+                First appeared: 1963
+              </div>
             </CardContent>
           </Card>
 
@@ -701,14 +786,23 @@ export const HomePage = () => {
 
               <div className="absolute top-3 left-3 flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <Badge variant="secondary" className="text-xs bg-white/90 text-gray-700">
+                <Badge
+                  variant="secondary"
+                  className="text-xs bg-white/90 text-gray-700"
+                >
                   Active
                 </Badge>
               </div>
 
-              <Badge className="absolute top-3 right-3 text-xs bg-red-600 text-white">Marvel</Badge>
+              <Badge className="absolute top-3 right-3 text-xs bg-red-600 text-white">
+                Marvel
+              </Badge>
 
-              <Button size="sm" variant="ghost" className="absolute bottom-3 right-3 bg-white/90 hover:bg-white">
+              <Button
+                size="sm"
+                variant="ghost"
+                className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+              >
                 <Heart className="h-4 w-4 text-gray-600" />
               </Button>
 
@@ -727,7 +821,9 @@ export const HomePage = () => {
                   <h3 className="font-bold text-lg leading-tight">Deadpool</h3>
                   <p className="text-sm text-gray-600">Wade Wilson</p>
                 </div>
-                <Badge className="text-xs bg-yellow-100 text-yellow-800 border-yellow-200">Anti-Hero</Badge>
+                <Badge className="text-xs bg-yellow-100 text-yellow-800 border-yellow-200">
+                  Anti-Hero
+                </Badge>
               </div>
               <Badge variant="outline" className="w-fit text-xs">
                 X-Force
@@ -736,7 +832,8 @@ export const HomePage = () => {
 
             <CardContent className="space-y-4">
               <p className="text-sm text-gray-600 line-clamp-2">
-                The Merc with a Mouth, an unpredictable anti-hero with accelerated healing powers.
+                The Merc with a Mouth, an unpredictable anti-hero with
+                accelerated healing powers.
               </p>
 
               <div className="grid grid-cols-2 gap-3">
@@ -785,7 +882,9 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 pt-2 border-t">First appeared: 1991</div>
+              <div className="text-xs text-gray-500 pt-2 border-t">
+                First appeared: 1991
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -815,7 +914,7 @@ export const HomePage = () => {
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
-      </div>
-    </div>
-  )
-}
+      </>
+    </>
+  );
+};
