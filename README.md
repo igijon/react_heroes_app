@@ -86,3 +86,11 @@ Bolt.new
 [React router](https://reactrouter.com/)
 
 Trabajaremos en modo **Data**: [Instalación](https://reactrouter.com/start/data/installation)
+
+# Backend
+
+[Backend](https://github.com/Klerith/nest-heroes-backend)
+
+`npm i`
+
+`npm run start:dev`
