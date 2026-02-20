@@ -94,3 +94,10 @@ Trabajaremos en modo **Data**: [Instalación](https://reactrouter.com/start/data
 `npm i`
 
 `npm run start:dev`
+
+# Tanstack query
+
+Muy interesante para la gestión eficiente de peticiones al backend.
+
+[Tanstack](https://tanstack.com/)
+
