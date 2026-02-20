@@ -19,6 +19,8 @@ export const HomePage = () => {
     queryFn: () => getHeroesByPageAction(), //Función que realiza la petición
     staleTime: 1000*60*5// (5 mins) Tiempo durante el cual los datos se consideran frescos (no se vuelven a pedir y los coge de la caché)
   });
+
+  console.log(data);
   // useEffect(() => {
   //   getHeroesByPage().then();
   // }, []);
