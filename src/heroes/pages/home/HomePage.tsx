@@ -14,6 +14,8 @@ export const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const activeTab = searchParams.get("tab") ?? "all";
+  const page = searchParams.get("page") ?? "1";
+  const limit = searchParams.get("limit") ?? "6";
 
   const selectedTab = useMemo(() => {
     const validTabs = ["all", "favorites", "heroes", "villains"];
@@ -26,7 +28,7 @@ export const HomePage = () => {
 
   const { data: heroesResponse } = useQuery({
     queryKey: ["heroes"], //Espacio de memoria donde almacenamos la petición
-    queryFn: () => getHeroesByPageAction(), //Función que realiza la petición
+    queryFn: () => getHeroesByPageAction(+page, +limit), //Función que realiza la petición
     staleTime: 1000 * 60 * 5, // (5 mins) Tiempo durante el cual los datos se consideran frescos (no se vuelven a pedir y los coge de la caché)
   });
 
@@ -111,7 +113,7 @@ export const HomePage = () => {
       </Tabs>
 
       {/* Pagination */}
-      <CustomPagination totalPages={8} />
+      <CustomPagination totalPages={heroesResponse?.pages ?? 1} />
     </>
   );
 };
