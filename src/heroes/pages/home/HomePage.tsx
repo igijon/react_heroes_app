@@ -27,7 +27,7 @@ export const HomePage = () => {
   // >("all");
 
   const { data: heroesResponse } = useQuery({
-    queryKey: ["heroes"], //Espacio de memoria donde almacenamos la petición
+    queryKey: ["heroes", {page, limit}], //Espacio de memoria donde almacenamos la petición
     queryFn: () => getHeroesByPageAction(+page, +limit), //Función que realiza la petición
     staleTime: 1000 * 60 * 5, // (5 mins) Tiempo durante el cual los datos se consideran frescos (no se vuelven a pedir y los coge de la caché)
   });
