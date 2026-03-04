@@ -5,10 +5,10 @@ import { HeroStats } from "@/heroes/components/HeroStats";
 import { HeroGrid } from "@/heroes/components/HeroGrid";
 import { CustomPagination } from "@/components/custom/CustomPagination";
 import { CustomBreadcrumbs } from "@/components/custom/CustomBreadcrumbs";
-import { getHeroesByPageAction } from "@/heroes/actions/get-heroes-by-page.action";
-import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router";
 import { useMemo } from "react";
+import { useHeroSummary } from "@/heroes/hooks/useHeroSummary";
+import { usePaginatedHero } from "@/heroes/hooks/usePaginatedHero";
 
 export const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,15 +26,8 @@ export const HomePage = () => {
   //   "all" | "favorites" | "heroes" | "villains"
   // >("all");
 
-  const { data: heroesResponse } = useQuery({
-    queryKey: ["heroes", {page, limit}], //Espacio de memoria donde almacenamos la petición
-    queryFn: () => getHeroesByPageAction(+page, +limit), //Función que realiza la petición
-    staleTime: 1000 * 60 * 5, // (5 mins) Tiempo durante el cual los datos se consideran frescos (no se vuelven a pedir y los coge de la caché)
-  });
-
-  // useEffect(() => {
-  //   getHeroesByPage().then();
-  // }, []);
+  const { data: heroesResponse } = usePaginatedHero(+page, +limit);
+  const { data: summary } = useHeroSummary();
 
   return (
     <>
@@ -62,14 +55,16 @@ export const HomePage = () => {
             }
             className="flex items-center gap-2"
           >
-            All Characters (16)
+            All Characters ({summary?.totalHeroes ?? 0})
           </TabsTrigger>
           <TabsTrigger
             value="favorites"
-            onClick={() => setSearchParams((prev) => {
+            onClick={() =>
+              setSearchParams((prev) => {
                 prev.set("tab", "favorites");
                 return prev;
-              })}
+              })
+            }
             className="flex items-center gap-2"
           >
             <Heart className="h-4 w-4" />
@@ -77,21 +72,25 @@ export const HomePage = () => {
           </TabsTrigger>
           <TabsTrigger
             value="heroes"
-            onClick={() => setSearchParams((prev) => {
+            onClick={() =>
+              setSearchParams((prev) => {
                 prev.set("tab", "heroes");
                 return prev;
-              })}
+              })
+            }
           >
-            Heroes (12)
+            Heroes ({summary?.heroCount ?? 0})
           </TabsTrigger>
           <TabsTrigger
             value="villains"
-            onClick={() => setSearchParams((prev) => {
+            onClick={() =>
+              setSearchParams((prev) => {
                 prev.set("tab", "villains");
                 return prev;
-              })}
+              })
+            }
           >
-            Villains (2)
+            Villains ({summary?.villainCount ?? 0})
           </TabsTrigger>
         </TabsList>
         <TabsContent value="all">
