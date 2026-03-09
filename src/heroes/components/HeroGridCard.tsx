@@ -5,6 +5,8 @@ import { Progress } from "@/components/ui/progress";
 import { Heart, Eye, Zap, Brain, Gauge, Shield } from "lucide-react";
 import type { Hero } from "../types/hero.interface";
 import { useNavigate } from "react-router";
+import { FavoriteHeroContext } from "../context/FavoriteHeroContext";
+import { use } from "react";
 
 interface Props {
   hero: Hero;
@@ -12,6 +14,8 @@ interface Props {
 
 export const HeroGridCard = ({ hero }: Props) => {
   const navigate = useNavigate();
+  const { toggleFavorite, isFavorite } = use(FavoriteHeroContext);
+  
   const handleClick = () => {
     navigate(`/heroes/${hero.slug}`); //El slug es como un identificador único y es url friendly. Los indexadores de Google, Meta... trabajan mejor con nombres en lugar de con ids
   };
@@ -54,8 +58,11 @@ export const HeroGridCard = ({ hero }: Props) => {
           size="sm"
           variant="ghost"
           className="absolute bottom-3 right-3 bg-white/90 hover:bg-white"
+          onClick={() => toggleFavorite(hero)}
         >
-          <Heart className="h-4 w-4 fill-red-500 text-red-500" />
+          <Heart className={`h-4 w-4 ${
+            isFavorite(hero) ? "text-red-500 fill-red-500" : "text-gray-600"
+          }`} />
         </Button>
 
         {/* View details button */}
