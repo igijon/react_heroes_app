@@ -2,8 +2,12 @@ import { CustomJumbotron } from "@/components/custom/CustomJumbotron";
 import { HeroStats } from "@/heroes/components/HeroStats";
 import { SearchControls } from "./ui/SearchControls";
 import { CustomBreadcrumbs } from "@/components/custom/CustomBreadcrumbs";
+import { HeroGrid } from "@/heroes/components/HeroGrid";
 
 export const SearchPage = () => {
+
+  // useQuery para traer los datos de los nombres
+
   return (
     <>
       <CustomJumbotron
@@ -23,7 +27,9 @@ export const SearchPage = () => {
       <HeroStats />
       {/* Filter and search */}
       <SearchControls />
+      <HeroGrid heroes={[]} />
     </>
+
   );
 };
 
