@@ -3,10 +3,20 @@ import { HeroStats } from "@/heroes/components/HeroStats";
 import { SearchControls } from "./ui/SearchControls";
 import { CustomBreadcrumbs } from "@/components/custom/CustomBreadcrumbs";
 import { HeroGrid } from "@/heroes/components/HeroGrid";
+import { useSearchParams } from "react-router";
+import { searchHeroesAction } from "@/heroes/actions/search-hero.action";
+import { useQuery } from "@tanstack/react-query";
 
 export const SearchPage = () => {
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get("name") ?? undefined;
 
   // useQuery para traer los datos de los nombres
+  const { data: heroes = [] } = useQuery({
+    queryKey: ["search", { name }],
+    queryFn: () => searchHeroesAction({ name }),
+    staleTime: 1000 * 60 * 5, //5 minutos
+  });
 
   return (
     <>
@@ -27,9 +37,8 @@ export const SearchPage = () => {
       <HeroStats />
       {/* Filter and search */}
       <SearchControls />
-      <HeroGrid heroes={[]} />
+      <HeroGrid heroes={heroes} />
     </>
-
   );
 };
 

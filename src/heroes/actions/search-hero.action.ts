@@ -12,7 +12,7 @@ interface Option {
   strength?: string;
 }
 
-export const searchHeroesAction = (options: Option = {}) => {
+export const searchHeroesAction = async (options: Option = {}) => {
   const { name, team, category, universe, status, strength } = options;
   if (!name && !team && !category && !universe && !status && !strength) {
     return [];
@@ -29,6 +29,9 @@ export const searchHeroesAction = (options: Option = {}) => {
   });
 
   return data.map(hero => ({
+    ...hero,
+    image: `${VITE_API_URL}/images/${hero.image}`
     
-  })
-};
+  }));
+}
+
